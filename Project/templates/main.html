@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <!-- Link to the About page using Flask URL -->
+            <li><a href="{{ url_for('about') }}" class="login-button">About</a></li>
+
+            <!-- Dropdown for Property -->
+            <!-- Dropdown for Property -->
+<li class="dropdown">
+    <a href="#" class="dropdown-btn">Property</a>
+    <div class="dropdown-content">
+        <a href="{{ url_for('add_property') }}">Add Property</a>
+        <a href="{{ url_for('view_property') }}">Manage Property</a>
+    </div>
+</li>
+
+
+            <!-- Logout link -->
+            <li><a href="{{ url_for('index') }}" class="login-button">Log out</a></li>
+        </ul>
+    </nav>
+
+    <section class="search-section">
+        <div class="content-wrapper">
+            <h1>Properties in Gujarat</h1>
+            <div class="tab-menu">
+                <div class="tab">
+                    <!-- Link to rent page -->
+                    <a href="{{ url_for('rent') }}">Rent</a>
+                </div>
+                <div class="tab">
+                    <!-- Link to PG/Co-living page -->
+                    <a href="{{ url_for('pg') }}">PG/Co-Living</a>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <!-- Search bar for city input -->
+                <input type="text" placeholder="Enter City" class="state-input" list="city-list" id="city-input">
+                <datalist id="city-list">
+                    <option value="Ahmedabad">
+                    <option value="Vadodara">
+                    <option value="Surat">
+                    <option value="Anand">
+                    <option value="Bhavnagar">
+                    <option value="Gandhinagar">
+                </datalist>
+
+                <!-- Search bar for area input -->
+                <input type="text" placeholder="Enter Area" class="search-input" id="area-input" list="area-select">
+                <datalist id="area-select">
+                    <option value="">Select Area</option>
+                </datalist>
+
+                <!-- Link to property listings page -->
+                <a href="{{ url_for('property_listings') }}" class="search-btn">Search</a>
+            </div>
+
+            <div class="properties-container">
+                <!-- Property listing example (You would dynamically generate these in Flask) -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/rental-laws.jpg') }}" alt="Property 1">
+                    <center>
+                        <h3>2 Bedroom Apartment</h3>
+                        <p>Location: Thaltej, Ahmedabad</p>
+                        <p>Price: 23000/month</p>
+                        <!-- Dynamic link for property details -->
+                        <a href="{{ url_for('property_details', property_id='1') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse2.jpg') }}" alt="Property 2">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Akota, Vadodara</p>
+                        <p>Price: 16000/month</p>
+                        <a href="{{ url_for('property_details', property_id='18') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+
+                <!-- Add more properties as needed -->
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script> <!-- Link to JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Property</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+
+<h2>Update Property</h2>
+
+<!-- Update Property Form -->
+<form method="POST" action="{{ url_for('update_property', property_id=property.property_id) }}">
+
+    <!-- Property ID (readonly) -->
+    <label for="property_id">Property ID:</label>
+    <input type="text" id="property_id" name="property_id" value="{{ property.property_id }}" readonly>
+
+    <!-- Owner Name -->
+    <label for="name">Owner Name:</label>
+    <input type="text" id="name" name="name" value="{{ property.owner_name }}" required>
+
+    <!-- Title -->
+    <label for="title">Property Title:</label>
+    <input type="text" id="title" name="title" value="{{ property.title }}" required>
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" required>{{ property.description }}</textarea>
+
+    <!-- Property Type -->
+    <label for="property_type">Property Type:</label>
+    <select id="property_type" name="property_type" required>
+        <option value="Flat" {% if property.property_type == 'Flat' %} selected {% endif %}>Flat</option>
+        <option value="Villa" {% if property.property_type == 'Villa' %} selected {% endif %}>Villa</option>
+        <option value="Duplex" {% if property.property_type == 'Duplex' %} selected {% endif %}>Duplex</option>
+        <option value="Bungalow" {% if property.property_type == 'Bungalow' %} selected {% endif %}>Bungalow</option>
+    </select>
+
+    <!-- Location -->
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="{{ property.location }}" required>
+
+    <!-- Price -->
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" value="{{ property.price }}" required>
+
+    <!-- Size -->
+    <label for="size">Size (sq. ft.):</label>
+    <input type="number" id="size" name="size" value="{{ property.size }}" required>
+
+    <!-- Furnished Status -->
+    <label for="furnished_status">Furnished Status:</label>
+    <select id="furnished_status" name="furnished_status" required>
+        <option value="Furnished" {% if property.furnished_status == 'Furnished' %} selected {% endif %}>Furnished</option>
+        <option value="Semi-Furnished" {% if property.furnished_status == 'Semi-Furnished' %} selected {% endif %}>Semi-Furnished</option>
+        <option value="Unfurnished" {% if property.furnished_status == 'Unfurnished' %} selected {% endif %}>Unfurnished</option>
+    </select>
+
+    <!-- Contact Info -->
+    <label for="contact_info">Contact Info:</label>
+    <input type="text" id="contact_info" name="contact_info" value="{{ property.contact_info }}" required>
+
+    <!-- Pets Allowed -->
+    <label for="pets_allowed">Pets Allowed:</label>
+    <select id="pets_allowed" name="pets_allowed" required>
+        <option value="Yes" {% if property.pets_allowed == 'Yes' %} selected {% endif %}>Yes</option>
+        <option value="No" {% if property.pets_allowed == 'No' %} selected {% endif %}>No</option>
+    </select>
+
+    <!-- Lease Terms -->
+    <label for="lease_terms">Lease Terms:</label>
+    <textarea id="lease_terms" name="lease_terms" rows="3" required>{{ property.lease_terms }}</textarea>
+
+    <!-- Submit Button -->
+    <button type="submit">Update Property</button>
+</form>
+
+</body>
+</html>

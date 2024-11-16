@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties in Gujarat</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <!-- Correcting the <a> tags to be inside <li> elements for better structure -->
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('login') }}" class="login-button">Login</a></li>
+        </ul>
+    </nav>
+    
+    <section class="search-section">
+        <div class="content-wrapper">
+            <h1>Properties in Gujarat</h1>
+            <div class="tab-menu">
+                <div class="tab">
+                    <!-- Make sure 'rent' route exists in your Flask app -->
+                    <a href="{{ url_for('rent') }}">Rent</a>
+                </div>
+                <div class="tab">
+                    <!-- Make sure 'pg' route exists in your Flask app -->
+                    <a href="{{ url_for('pg') }}">PG/Co-Living</a>
+                </div>
+            </div>
+
+            <div class="properties-container">
+                <!-- Property 1 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/rental-laws.jpg') }}" alt="Property 1">
+                    <center>
+                        <h3>2 Bedroom Apartment</h3>
+                        <p>Location: Thaltej, Ahmedabad</p>
+                        <p>Price: ₹23000/month</p>
+                        <!-- Pass a numeric property ID, assuming property1 is actually an integer ID -->
+                        <a href="{{ url_for('property_details', property_id=1) }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse2.jpg') }}" alt="Property 2">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Akota, Vadodara</p>
+                        <p>Price: ₹16000/month</p>
+                        <!-- Pass a numeric property ID -->
+                        <a href="{{ url_for('property_details', property_id=18) }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/house103.jpg') }}" alt="Property 3">
+                    <center>
+                        <h3>1 BHK Flat for Rent</h3>
+                        <p>Location: Harinagar, Vadodara</p>
+                        <p>Price: ₹13000/Month</p>
+                        <!-- Pass a numeric property ID -->
+                        <a href="{{ url_for('property_details', property_id=4) }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                
+                <!-- Property 4 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse4.jpeg') }}" alt="Property 4">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Gandhinagar</p>
+                        <p>Price: ₹19000/month</p>
+                        <!-- Pass a numeric property ID -->
+                        <a href="{{ url_for('property_details', property_id=19) }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link to your custom JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script> 
+</body>
+</html>

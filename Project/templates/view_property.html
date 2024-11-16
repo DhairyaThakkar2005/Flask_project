@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Properties</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+
+<h2>All Properties</h2>
+
+<!-- Loop through the properties and display them -->
+<div id="properties-list">
+    {% if properties %}
+        {% for property in properties %}
+        <div class="property">
+            <p><strong>Property Id:</strong> {{ property['property_id'] }}</p>
+            <p><strong>Owner Name:</strong> {{ property['owner_name'] }}</p>
+            <p><strong>Title:</strong> {{ property['title'] }}</p>
+            <p><strong>Description:</strong> {{ property['description'] }}</p>
+            <p><strong>Property Type:</strong> {{ property['property_type'] }}</p>
+            <p><strong>Location:</strong> {{ property['location'] }}</p>
+            <p><strong>Price:</strong> ₹{{ property['price'] }}</p>
+            <p><strong>Size (sq. ft.):</strong> {{ property['size'] }}</p>
+            <p><strong>Furnished Status:</strong> {{ property['furnished_status'] or 'Not Specified' }}</p>
+            <p><strong>Availability Status:</strong> {{ property['availability_status'] }}</p>
+            <p><strong>Contact Info:</strong> {{ property['contact_info'] }}</p>
+            <p><strong>Pets Allowed:</strong> {{ property['pets_allowed'] }}</p>
+            <p><strong>Lease Terms:</strong> {{ property['lease_terms'] }}</p>
+            
+            <!-- Display Property Image -->
+            {% if property['image_path'] %}
+            <p><strong>Image:</strong>
+                <img src="{{ url_for('static', filename='uploads/' + property['image_path']) }}" alt="Property Image" width="200">
+            </p>
+            {% else %}
+            <p>No image available.</p>
+            {% endif %}
+
+            <!-- Edit Button -->
+            <p><a href="{{ url_for('update_property', property_id=property['property_id']) }}">Edit Property</a></p>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No properties found.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

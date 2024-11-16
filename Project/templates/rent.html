@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to the CSS file using url_for for static assets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties in Gujarat</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <!-- Updated 'About' link with Flask route -->
+            <li><a href="{{ url_for('about') }}" class="login-button">About</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-btn">Property</a>
+                <div class="dropdown-content">
+                    <!-- Property related links with Flask route -->
+                    <a href="{{ url_for('add_property') }}">Add Property</a>
+                </div>
+            </li>
+            
+            <!-- Log out link (adjust this depending on your Flask logic) -->
+            <li>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="search-section">
+        <div class="content-wrapper">
+            <h1>Properties in Gujarat</h1>
+            <div class="tab-menu">
+                <div class="tab">
+                    <!-- Updated Rent and PG/Co-Living links -->
+                    <a href="{{ url_for('rent') }}">Rent</a>
+                </div>
+                <div class="tab">
+                    <a href="{{ url_for('pg') }}">PG/Co-Living</a>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Enter City" class="state-input" list="city-list" id="city-input">
+                <datalist id="city-list">
+                    <option value="Ahmedabad">
+                    <option value="Vadodara">
+                    <option value="Surat">
+                    <option value="Anand">
+                    <option value="Bhavnagar">
+                    <option value="Gandhinagar">
+                </datalist>
+
+                <input type="text" placeholder="Enter Area" class="search-input" id="area-input" list="area-select">
+                <datalist id="area-select">
+                    <option value="">Select Area</option>
+                </datalist>
+
+                <!-- Updated search link to use Flask route -->
+                <a href="{{ url_for('property_listings') }}" class="search-btn">Search</a>
+            </div>
+
+            <div class="properties-container">
+                <!-- Example Property Listings, each link uses Flask's url_for -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/rental-laws.jpg') }}" alt="Property 1">
+                    <center>
+                        <h3>2 Bedroom Apartment</h3>
+                        <p>Location: Thaltej, Ahmedabad</p>
+                        <p>Price: 23000/month</p>
+                        <a href="{{ url_for('property_details', property_id='1') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse2.jpg') }}" alt="Property 2">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Akota, Vadodara</p>
+                        <p>Price: 16000/month</p>
+                        <a href="{{ url_for('property_details', property_id='18') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/house103.jpg') }}" alt="Property 3">
+                    <center>
+                        <h3>1 BHK Flat for Rent</h3>
+                        <p>Location: Harinagar, Vadodara</p>
+                        <p>Price: 13000/Month</p>
+                        <a href="{{ url_for('property_details', property_id='4') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse4.jpeg') }}" alt="Property 4">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Gandhinagar</p>
+                        <p>Price: 19000/month</p>
+                        <a href="{{ url_for('property_details', property_id='19') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link to the JavaScript file using url_for -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

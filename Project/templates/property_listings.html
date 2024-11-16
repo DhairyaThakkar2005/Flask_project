@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style302.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('main') }}" class="login-button">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="login-button">About</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-btn">Property</a>
+                <div class="dropdown-content">
+                    <!-- Static buttons for property actions -->
+                    <a href="{{ url_for('add_property') }}">Add Property</a>
+                    <a href="{{ url_for('view_property') }}">Manage Property</a>
+                </div>
+            </li>
+            <li><a href="{{ url_for('index') }}" class="logout-button">Log out</a></li> 
+        </ul>
+    </nav>
+
+    <section class="listings-container">
+        <h1>Available Properties</h1>
+
+        {% if properties %}
+        <div class="properties">
+            {% for property in properties %}
+                <div class="property-card">
+                    <h2>{{ property.title }}</h2>
+                    <p>Location: {{ property.location }}</p>
+                    <p>Price: ${{ property.price }}</p>
+                    <a href="{{ url_for('property_details', property_id=property.property_id) }}" class="details-button">View Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No properties found matching your criteria.</p>
+    {% endif %}
+        <!-- Static Content - No Loop Needed -->
+        <div class="properties-container">
+            <div class="property">
+                <h3>Property 1</h3>
+                <p>Location: Ahmedabad</p>
+                <p>Price: 23000/month</p>
+                <a href="{{ url_for('property_details', property_id=1) }}" class="details-button">View Details</a>
+            </div>
+
+            <div class="property">
+                <h3>Property 2</h3>
+                <p>Location: Vadodara</p>
+                <p>Price: 18000/month</p>
+                <a href="{{ url_for('property_details', property_id=2) }}" class="details-button">View Details</a>
+            </div>
+
+            <div class="property">
+                <h3>Property 3</h3>
+                <p>Location: Surat</p>
+                <p>Price: 15000/month</p>
+                <a href="{{ url_for('property_details', property_id=3) }}" class="details-button">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

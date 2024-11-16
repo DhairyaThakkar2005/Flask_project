@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties For PG/Co-Living in Gujarat</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <!-- Corrected Login link with proper url_for usage -->
+            <li><a href="{{ url_for('register') }}" class="login-button">Login</a></li>
+            <li><a href="{{ url_for('property_listings') }}" class="login-button">Properties</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="search-section">
+        <div class="content-wrapper">
+            <h1>Properties For PG/Co-Living in Gujarat</h1>
+            <div class="tab-menu">
+                <div class="tab">
+                    <a href="{{ url_for('rent') }}">Rent</a>
+                </div>
+                <div class="tab">
+                    <a href="{{ url_for('pg') }}">PG/Co-Living</a>
+                </div>
+            </div>
+
+            <div class="properties-container">
+                <!-- Start of Property 1 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/indeximg5.jpeg') }}" alt="Property 1">
+                    <center>
+                        <h3>2 Bedroom Apartment</h3>
+                        <p>Location: Bhayli, Vadodara</p>
+                        <p>Price: 7000/month</p>
+                        <a href="{{ url_for('property_details', property_id='24') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <!-- End of Property 1 -->
+
+                <!-- Start of Property 2 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/indeximg6.jpg') }}" alt="Property 2">
+                    <center>
+                        <h3>3 BHK House</h3>
+                        <p>Location: Bhayli, Vadodara</p>
+                        <p>Price: 9000/month</p>
+                        <a href="{{ url_for('property_details', property_id='25') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <!-- End of Property 2 -->
+
+                <!-- Start of Property 3 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/house103.jpg') }}" alt="Property 3">
+                    <center>
+                        <h3>1 BHK Flat</h3>
+                        <p>Location: Harinagar, Vadodara</p>
+                        <p>Price: 15000/month</p>
+                        <a href="{{ url_for('property_details', property_id='4') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <!-- End of Property 3 -->
+
+                <!-- Start of Property 4 -->
+                <div class="property">
+                    <img src="{{ url_for('static', filename='images/renthouse4.jpeg') }}" alt="Property 4">
+                    <center>
+                        <h3>2 Bedroom House</h3>
+                        <p>Location: Gandhinagar</p>
+                        <p>Price: 19000/month</p>
+                        <a href="{{ url_for('property_details', property_id='19') }}" class="details-button">View Details</a>
+                    </center>
+                </div>
+                <!-- End of Property 4 -->
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style302.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ property.title }}</title>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('property_listings') }}">Home</a></li>
+
+            <li><a href="{{ url_for('about')}}">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="property-details">
+        <h1 id="property-title">{{ property.title }}</h1>
+        <p id="property-location">Location: {{ property.location }}</p>
+        <p id="property-price">Price: {{ property.price }}</p>
+        <p id="property-area">Area: {{ property.area }}</p>
+        <p id="property-bedrooms">Bedrooms: {{ property.bedrooms }}</p>
+        <p id="property-bathrooms">Bathrooms: {{ property.bathrooms }}</p>
+        <p id="property-furnishing">Furnishing: {{ property.furnishing }}</p>
+        <p id="property-amenities">Amenities: {{ property.amenities }}</p>
+        <p id="property-description">Description: {{ property.description }}</p>
+        <p id="property-contact">Contact: {{ property.contact }}</p>
+        <center><a href="{{ url_for('payment', property_id=property.property_id) }}" class="details-button">Book Now</a></center>
+
+
+    </section>
+</body>
+</html>

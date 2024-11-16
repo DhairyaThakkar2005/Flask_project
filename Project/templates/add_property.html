@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property</title>
+    <!-- Link to the CSS file using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}"> 
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add a New Property</h1>
+        <!-- Form action now uses Flask's url_for for dynamic routing -->
+        <form action="/add-property" method="POST" enctype="multipart/form-data">
+            
+            <!-- Property ID -->
+            <label for="property_id">Property ID</label>
+            <input type="text" id="property_id" name="property_id" required>
+
+            <!-- Owner Name -->
+            <label for="name">Owner Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- Title -->
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+
+            <!-- Description -->
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <!-- Property Type -->
+            <label for="property_type">Property Type</label>
+            <input type="text" id="property_type" name="property_type" required>
+
+            <!-- Location -->
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required>
+
+            <!-- Price -->
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" required>
+
+            <!-- Size -->
+            <label for="size">Size (sq. ft.)</label>
+            <input type="number" id="size" name="size" required>
+
+            <!-- Furnished Status -->
+            <label for="furnished_status">Furnished Status</label>
+            <select id="furnished_status" name="furnished_status" required>
+                <option value="Furnished">Furnished</option>
+                <option value="Semi-Furnished">Semi-Furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
+            </select>
+
+            <!-- Availability Status -->
+            <label for="availability_status">Availability Status</label>
+            <select id="availability_status" name="availability_status" required>
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+            </select>
+
+            <!-- Contact Information -->
+            <label for="contact_info">Contact Info</label>
+            <input type="text" id="contact_info" name="contact_info" required>
+
+            <!-- Pets Allowed -->
+            <label for="pets_allowed">Pets Allowed</label>
+            <select id="pets_allowed" name="pets_allowed" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Lease Terms -->
+            <label for="lease_terms">Lease Terms</label>
+            <textarea id="lease_terms" name="lease_terms" rows="3" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Add Property</button>
+        </form>
+    </div>
+</body>
+</html>
